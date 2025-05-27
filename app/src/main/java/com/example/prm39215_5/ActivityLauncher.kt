@@ -9,7 +9,7 @@ class ActivityLauncher : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         // 👉 Chỉ cần sửa dòng dưới để test Activity khác:
-        startActivity(Intent(this, DialerActivityLab6::class.java))
+        startActivity(Intent(this, LoginActivity::class.java))
         finish()
     }
 }

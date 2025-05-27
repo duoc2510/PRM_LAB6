@@ -1,5 +1,6 @@
 package com.example.prm39215_5
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
 import android.widget.*
@@ -35,10 +36,58 @@ class PRM329_27_5 : AppCompatActivity() {
     }
 
     private fun showHomeContent() {
-        username = intent.getStringExtra("USERNAME_KEY") ?: "Unknown"
+        container.removeAllViews()
 
-        showCenteredText("Chào mừng $username đến với Trang chủ")
+        val layout = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            gravity = Gravity.CENTER
+            layoutParams = FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.MATCH_PARENT,
+                FrameLayout.LayoutParams.MATCH_PARENT
+            )
+            setPadding(32, 32, 32, 32)
+        }
+
+        val textView = TextView(this).apply {
+            text = "Chào mừng $username đến với Trang chủ"
+            textSize = 20f
+            gravity = Gravity.CENTER
+        }
+
+        val btnToLogin = Button(this).apply {
+            text = "Đăng xuất"
+            setOnClickListener {
+                val intent = Intent(this@PRM329_27_5, LoginActivity::class.java)
+                startActivity(intent)
+                finish() // Quan trọng: kết thúc Activity hiện tại để không quay lại khi Back
+            }
+        }
+
+
+        val btnToDialer = Button(this).apply {
+            text = "Mở bàn phím quay số"
+            setOnClickListener {
+                val intent = Intent(this@PRM329_27_5, DialerActivityLab6::class.java)
+                startActivity(intent)
+            }
+        }
+        val btnToActivity1 = Button(this).apply {
+            text = "Mở nhập số"
+            setOnClickListener {
+                val intent = Intent(this@PRM329_27_5, MainActivityLab6::class.java)
+                startActivity(intent)
+            }
+        }
+
+        layout.addView(textView)
+        layout.addView(btnToLogin)
+        layout.addView(btnToDialer)
+        layout.addView(btnToActivity1)
+
+
+        container.addView(layout)
     }
+
 
     private fun showSearchContent() {
         showCenteredText("Tìm kiếm nội dung...")
