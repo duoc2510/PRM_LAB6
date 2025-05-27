@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">PRM39215_5</string>
+    <string name="sign_up_for_facebook">Sign Up For Facebook</string>
+    <string name="facebook_logo">Facebook Logo</string>
+    <string name="english_change">English - Change</string>
+    <string name="email_name">Email or your phone number</string>
+    <string name="user_name">Your username</string>
+
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="forgot_password">Forgot Password?</string>
+</resources>
